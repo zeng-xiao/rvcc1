@@ -1,0 +1,23 @@
+{
+        "version": "2.0.0",
+        "tasks": [
+                {
+                        "type": "shell",
+                        "label": "RUN QEMU RISCV",
+                        "command": "qemu-riscv64",
+                        "args": [
+                                "-L",
+                                "~/Downloads/tools/gcc-13/daily/out/riscv-linux-toolchain/sysroot",
+                                "-g",
+                                "1234",
+                                "${workspaceFolder}/rvcc",
+                                "'42'"
+                        ]
+                },
+                {
+                        "type": "shell",
+                        "label": "KILL QEMU RISCV",
+                        "command": "ps -C qemu-riscv64 --no-headers | cut -d \\  -f 1 | xargs kill -9"
+                }
+        ]
+}
